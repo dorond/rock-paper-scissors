@@ -73,20 +73,20 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
+let options = document.querySelector('#options');
+options.addEventListener('click', (event) => {
+    
+    let target = event.target;
 
-    for (let i = 0; i < 5; i++) {
-        let playerSelection = prompt('Rock, Paper or Scissors?');
-        let computerSelection = getComputerChoice();
-        let roundResult = playRound(playerSelection, computerSelection);
-        playerScore += roundResult.playerScore;
-        computerScore += roundResult.computerScore;
+    switch (target.id) {
+        case 'rock':
+            console.log('rock was clicked');
+            break;
+        case 'paper':
+            console.log('paper was clicked');
+            break;
+        case 'scissors':
+            console.log('scissors was clicked');
+            break;
     }
-
-    console.log(`You scored ${playerScore} and the computer scored ${computerScore}`)
-    console.log((playerScore > computerScore) ? 'You win' : (playerScore < computerScore) ? 'You lose' : 'It\'s a draw');    
-}
-
-game();
+});
